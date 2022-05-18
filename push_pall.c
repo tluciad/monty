@@ -3,12 +3,13 @@
 /**
  * push - push action for monty
  * @s: name of the stack
- * @new_item: new item to push
+ * @new_value: new item to push
+ * Return: Always 0
  */
 
-void push(stack_t **s, unsigned int new_item)
+void push(stack_t **s, unsigned int new_value)
 {
-	int new_value = 0;
+	int new_item = 0;
 	int is_int;
 	char *value;
 
@@ -16,12 +17,12 @@ void push(stack_t **s, unsigned int new_item)
 	is_int = string_is_int(value);
 	if (is_int == 0)
 	{
-		new_value = atoi(value);
-		add_dnodeint(s, new_value);
+		new_item = atoi(value);
+		add_dnodeint(s, new_item);
 	}
 	else
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", new_item);
+		fprintf(stderr, "L%d: usage: push integer\n", new_value);
 		free_dlistint(*s);
 		exit(EXIT_FAILURE);
 	}
@@ -29,10 +30,10 @@ void push(stack_t **s, unsigned int new_item)
 /**
  * pall - prints all the info of the stack
  * @s: name of the stack
- * @new_item: new item to push
+ * @new_value: new item to push
  */
 
-void pall(stack_t **s, __attribute__((unused)) unsigned int new_item)
+void pall(stack_t **s, __attribute__((unused)) unsigned int new_value)
 {
 	if (s)
 		print_dlistint(*s);
