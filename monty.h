@@ -57,4 +57,5 @@ void rotate_s_top(stack_t **s, unsigned int new_value);
 void stack_queue(stack_t **s, unsigned int new_value);
 void add_node(stack_t **s, unsigned int new_value);
 
+extern char global_s;
 #endif
