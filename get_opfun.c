@@ -3,7 +3,7 @@
  * @brief 
  * 
  */
-void (*get_opfun(char *tok_a))(stack_t **s, unsigned int new_value)
+void (*get_opfun(char *tok_a, unsigned int new_value))(stack_t **s, unsigned int new_value)
 {
     instruction_t opfun[] ={
         {"push", push},
@@ -25,6 +25,14 @@ void (*get_opfun(char *tok_a))(stack_t **s, unsigned int new_value)
 		{"rotr", rotate_s_top},
 		{NULL, NULL}
 	};
-	int i;
-    }
+	int i = 0;
+    while (opfun[i].opcode != NULL)
+	{
+		if (strcmp(opfun[i].opcode, tok_a) == 0)
+			return (opfun[i].f);
+		i++;
+	}
+	// TODO: If the method is not found, exit with an error.
+	fprintf(stderr, "L%d: unknown instruction %s\n", new_value, tok_a);
+	exit(EXIT_FAILURE);
 }
