@@ -7,10 +7,10 @@
  */
 int main(int argc, char const *argv[])
 {
-    char *meth_file = argv[1];
+    char *methode_file = argv[1];
 
-    FILE *f = fopen(meth_file, "r");
-    char *c;
+    FILE *f = fopen(methode_file, "r");
+    char *cont;
 
     getline(&c, NULL, f);
     return 0;

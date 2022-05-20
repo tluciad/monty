@@ -11,13 +11,11 @@ void push(stack_t **s, unsigned int new_value)
 {
 	int new_item = 0;
 	int is_int;
-	char *value;
-
-	value = strtok(NULL, " ");
-	is_int = string_is_int(value);
+	
+	is_int = string_is_int(global_s);
 	if (is_int == 0)
 	{
-		new_item = atoi(value);
+		new_item = atoi(global_s);
 		add_dnodeint(s, new_item);
 	}
 	else
