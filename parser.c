@@ -3,8 +3,10 @@
  * parser -  line spliter
  * @cont: content
  */
-void parser(char *cont)
+void parser(char *cont, unsigned int new_value)
 {
-    char *token = strtok(cont, "\n");
-    printf("%s", token);
-}
+    char *tok_a =strtok(cont, " \n");
+    char *tok_b =strtok(NULL, " \n");
+
+    int (*ptr)(stack_t **s, unsigned int new_value);
+    ptr = get_

@@ -9,9 +9,14 @@ int main(int argc, char const *argv[])
 {
     char *methode_file = argv[1];
 
-    FILE *f = fopen(methode_file, "r");
+    FILE *f = fopen(methode_file, "r");if (argc != 2)
+	{
+		fprintf(stderr, "usage: monty file \n");
+		exit(EXIT_FAILURE);
+	}
+
     char *cont;
 
-    getline(&c, NULL, f);
+    getline(&cont, NULL, f);
     return 0;
 }
