@@ -36,4 +36,24 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+ssize_t read_textfile(const char *filename, size_t letters);
+void push(stack_t **s, unsigned int new_value);
+void pall(stack_t **s, __attribute__((unused)) unsigned int new_value);
+void pint(stack_t **s, unsigned int new_value);
+void swap_two_elements(stack_t **s, unsigned int new_item);
+void add(stack_t **s, unsigned int new_value);
+void nop(stack_t **s, unsigned int new_value);
+
+void sub(stack_t **s, unsigned int new_value);
+void mul(stack_t **s, unsigned int new_value);
+void div(stack_t **s, unsigned int new_value);
+void mod(stack_t **s, unsigned int new_value);
+void prints_char(stack_t **s, unsigned int new_value);
+void prints_str(stack_t **s, unsigned int new_value);
+void rotate_s_bottom(stack_t **s, unsigned int new_value);
+void rotate_s_top(stack_t **s, unsigned int new_value);
+
+void stack_queue(stack_t **s, unsigned int new_value);
+void add_node(stack_t **s, unsigned int new_value);
+
 #endif
