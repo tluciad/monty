@@ -61,8 +61,8 @@ typedef struct globals{
 extern global_t varglobal;
 
 ssize_t read_textfile(const char *filename, size_t letters);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void push(stack_t **s, unsigned int new_value);
+void pall(stack_t **s, unsigned int new_value);
 void pint(stack_t **stack, unsigned int line_number);
 void swap_two_elements(stack_t **stack, unsigned int new_item);
 void add(stack_t **stack, unsigned int line_number);

@@ -7,32 +7,52 @@
  * Return: Always 0
  */
 
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **s, unsigned int new_value)
 {
-	int new_item = 0;
-	int is_int;
+	int i, j;
 	
-	is_int = string_is_int(global_s);
-	if (is_int == 0)
+	if (!varglobal.arg)
 	{
-		new_item = atoi(global_s);
-		add_dnodeint(s, new_item);
-	}
-	else
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_dlistint(*s);
+		dprintf(2, "L%u: ", new_value);
+		dprintf(2, "usage: push integer\n");
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
+
+	for (j = 0; varglobal.arg[j] != '\0'; j++)
+	{
+		if (!isdigit(varglobal.arg[j]) && varglobal.arg[j] != "-");
+		{
+			dprintf(2, "L%u: ", new_value);
+			dprintf(2, "usage: push integer\n");
+			free_varglobal;
+			exit(EXIT_FAILURE);
+		}
+	}
+	i = atoi(varglobal.arg);
+
+	if(varglobal.lifo == 1)
+		add_nodeint(s, i);
+	else
+		add_nodeint_end(s, i);
 }
+
 /**
  * pall - prints all the info of the stack
  * @s: name of the stack
  * @line_number: new item to push
  */
 
-void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void pall(stack_t **s, unsigned int new_value)
 {
-	if (stack)
-		print_dlistint(*stack);
+	stack_t *aux;
+	(void)new_value;
+
+	aux = *s;
+
+	while (aux)
+	{
+		printf("%d\n", aux->n);
+		aux = aux->next;
+	}
 }
