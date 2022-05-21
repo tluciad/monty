@@ -3,14 +3,14 @@
  * sub - subtracts the top element of the stack
  *
  * @s: name of the stack
- * @new_value: new item to push
+ * @line_number: new item to push
  * Return: Always 0
  */
-void sub(stack_t **s, unsigned int new_value)
+void sub(stack_t **stack, unsigned int line_number)
 {
 	if (!s || !*s || !(*s)->next)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", new_value);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		free_dlistint(*s);
 		exit(EXIT_FAILURE);
 	}

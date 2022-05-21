@@ -3,7 +3,7 @@
  * @brief 
  * 
  */
-void (*get_opfun(char *tok_a, unsigned int new_value))(stack_t **s, unsigned int new_value)
+void (*get_opfun(char *tok_a, unsigned int line_number))(stack_t **stack, unsigned int line_number)
 {
     instruction_t opfun[] ={
         {"push", push},
@@ -33,6 +33,6 @@ void (*get_opfun(char *tok_a, unsigned int new_value))(stack_t **s, unsigned int
 		i++;
 	}
 	// TODO: If the method is not found, exit with an error.
-	fprintf(stderr, "L%d: unknown instruction %s\n", new_value, tok_a);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, tok_a);
 	exit(EXIT_FAILURE);
 }

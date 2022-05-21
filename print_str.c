@@ -3,10 +3,10 @@
  * print_str - prints the string starting at the top of the stack
  *
  * @s: name of the stack
- * @new_value: new item to push
+ * @line_number: new item to push
  * Return: Always 0
  */
-void print_str(stack_t **s, __attribute__((unused)) unsigned int new_value)
+void print_str(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
 	size_t lenght = 0;
 	stack_t *temporal;

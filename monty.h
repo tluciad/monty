@@ -37,26 +37,51 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct globals - global structure to use in the functions
+ * @lifo: is stack or queue
+ * @cont: current line
+ * @arg: second parameter inside the current line
+ * @head: doubly linked list
+ * @fd: file descriptor
+ * @buffer: input text
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct globals{
+	int lifo;
+	unsigned int cont;
+	char *arg;
+	stack_t *head;
+	FILE *f;
+	char *buffer;
+} global_t;
+
+extern global_t varglobal;
+
 ssize_t read_textfile(const char *filename, size_t letters);
-void push(stack_t **s, unsigned int new_value);
-void pall(stack_t **s, __attribute__((unused)) unsigned int new_value);
-void pint(stack_t **s, unsigned int new_value);
-void swap_two_elements(stack_t **s, unsigned int new_item);
-void add(stack_t **s, unsigned int new_value);
-void nop(stack_t **s, unsigned int new_value);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void swap_two_elements(stack_t **stack, unsigned int new_item);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 
-void sub(stack_t **s, unsigned int new_value);
-void mul(stack_t **s, unsigned int new_value);
-void div(stack_t **s, unsigned int new_value);
-void mod(stack_t **s, unsigned int new_value);
-void prints_char(stack_t **s, unsigned int new_value);
-void prints_str(stack_t **s, unsigned int new_value);
-void rotate_s_bottom(stack_t **s, unsigned int new_value);
-void rotate_s_top(stack_t **s, unsigned int new_value);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void div(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void prints_char(stack_t **stack, unsigned int line_number);
+void prints_str(stack_t **stack, unsigned int line_number);
+void rotate_s_bottom(stack_t **stack, unsigned int line_number);
+void rotate_s_top(stack_t **stack, unsigned int line_number);
 
-void stack_queue(stack_t **s, unsigned int new_value);
-void add_node(stack_t **s, unsigned int new_value);
-void parser(char *cont, unsigned int new_value);
+void stack_queue(stack_t **stack, unsigned int line_number);
+void add_node(stack_t **stack, unsigned int line_number);
+void parser(char *cont, unsigned int line_number);
+void (*get_opfun(char *tok_a, unsigned int line_number))(stack_t **stack, unsigned int line_number);
 
-extern char *global_s;
+
+void free_varglobal(void);gi
 #endif

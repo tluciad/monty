@@ -3,20 +3,20 @@
  * mod - computes the rest of the division
  *
  * @s: name of the stack
- * @new_value: new item to push
+ * @line_number: new item to push
  * Return: Always 0
  */
-void mod(stack_t **s, unsigned int new_value)
+void mod(stack_t **stack, unsigned int line_number)
 {
 	if (!s || !*s || !(*s)->next)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", new_value);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		free_dlistint(*s);
 		exit(EXIT_FAILURE);
 	}
 	else if ((*s)->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", new_value);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	else

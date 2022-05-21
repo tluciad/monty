@@ -3,11 +3,11 @@
 /**
  * push - push action for monty
  * @s: name of the stack
- * @new_value: new item to push
+ * @line_number: new item to push
  * Return: Always 0
  */
 
-void push(stack_t **s, unsigned int new_value)
+void push(stack_t **stack, unsigned int line_number)
 {
 	int new_item = 0;
 	int is_int;
@@ -20,7 +20,7 @@ void push(stack_t **s, unsigned int new_value)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", new_value);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_dlistint(*s);
 		exit(EXIT_FAILURE);
 	}
@@ -28,11 +28,11 @@ void push(stack_t **s, unsigned int new_value)
 /**
  * pall - prints all the info of the stack
  * @s: name of the stack
- * @new_value: new item to push
+ * @line_number: new item to push
  */
 
-void pall(stack_t **s, __attribute__((unused)) unsigned int new_value)
+void pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
-	if (s)
-		print_dlistint(*s);
+	if (stack)
+		print_dlistint(*stack);
 }
