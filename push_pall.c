@@ -1,41 +1,43 @@
 #include "monty.h"
 
 /**
- * push - push action for monty
- * @s: name of the stack
- * @line_number: new item to push
- * Return: Always 0
+ * _push - pushes an element to the stack
+ *
+ * @doubly: head of the linked list
+ * @cline: line number
+ * Return: no return
  */
-
-void push(stack_t **s, unsigned int new_value)
+void _push(stack_t **doubly, unsigned int cline)
 {
-	int i, j;
-	
-	if (!varglobal.arg)
+	int n, j;
+
+	if (!variableo.arg)
 	{
-		dprintf(2, "L%u: ", new_value);
+		dprintf(2, "L%u: ", cline);
 		dprintf(2, "usage: push integer\n");
-		free_varglobal();
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	for (j = 0; varglobal.arg[j] != '\0'; j++)
+	for (j = 0; vglo.arg[j] != '\0'; j++)
 	{
-		if (!isdigit(varglobal.arg[j]) && varglobal.arg[j] != "-");
+		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
 		{
-			dprintf(2, "L%u: ", new_value);
+			dprintf(2, "L%u: ", cline);
 			dprintf(2, "usage: push integer\n");
-			free_varglobal;
+			free_vglo();
 			exit(EXIT_FAILURE);
 		}
 	}
-	i = atoi(varglobal.arg);
 
-	if(varglobal.lifo == 1)
-		add_nodeint(s, i);
+	n = atoi(vglo.arg);
+
+	if (vglo.lifo == 1)
+		add_dnodeint(doubly, n);
 	else
-		add_nodeint_end(s, i);
+		add_dnodeint_end(doubly, n);
 }
+
 
 /**
  * pall - prints all the info of the stack
