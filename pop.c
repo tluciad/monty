@@ -8,12 +8,12 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	if (!s || !*s)
+	if (!stack || !*stack)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		free_dlistint(*s);
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else
-		delete_dnodeint_at_index(s, 0);
+		delete_dnodeint_at_index(stack, 0);
 }

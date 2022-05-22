@@ -21,8 +21,6 @@ void (*get_opfun(char *tok_a, unsigned int line_number))(stack_t **stack, unsign
 		{"mod", mod},
 		{"pchar", prints_char},
 		{"pstr", prints_str},
-		{"rotl", rotates_s_bottom},
-		{"rotr", rotate_s_top},
 		{NULL, NULL}
 	};
 	int i = 0;
