@@ -3,26 +3,35 @@
  * div - divides the second top element of the stack
  *
  * @s: name of the stack
- * @line_number: new item to push
+ * @new_value: new item to push
  * Return: Always 0
  */
-void div(stack_t **stack, unsigned int line_number)
+void div(stack_t **s, unsigned int new_value)
 {
-	if (!s || !*s || !(*s)->next)
+	int m = 0;
+	stack_t *aux = NULL;
+
+	aux = *s;
+
+	for (; aux != NULL; aux = aux->next, m++)
+		;
+
+	if (m < 2)
 	{
-		fprintf(stderr, "L%d: Cannot be diveded, stack is too short\n", line_number);
-		free_dlistint(*s);
+		dprintf(2, "L%u: can't div, stack too short\n", new_value);
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
-	else if ((*s)->n == 0)
+
+	if ((*s)->n == 0)
 	{
-		fprintf(stderr, "L%d: Division by zero\n", line_number);
-		free_dlistint(*s);
+		dprintf(2, "L%u: division by zero\n", new_value);
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		((*s)->next)->n = ((*s)->next)->n / (*s)->n;
-		delete_dnodeint_at_index(s, 0);
-	}
+
+	aux = (*s)->next;
+	aux->n /= (*s)->n;
+	pop(s, new_value);
 }
+

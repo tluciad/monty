@@ -4,7 +4,7 @@
  * @s: name of stack
  * @line_number: item of the stack
  */
-void _pint(stack_t **s, unsigned int new_value)
+void pint(stack_t **s, unsigned int new_value)
 {
 	(void)new_value;
 

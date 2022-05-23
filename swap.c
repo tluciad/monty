@@ -6,7 +6,7 @@
  * @new_item: new item to push
  * Return: Always 0
  */
-void _swap(stack_t **s, unsigned int new_value)
+void swap(stack_t **s, unsigned int new_value)
 {
 	int m = 0;
 	stack_t *aux = NULL;

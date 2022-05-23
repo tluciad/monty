@@ -6,22 +6,18 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void print_str(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+void print_str(stack_t **s, unsigned int new_value)
 {
-	size_t lenght = 0;
-	stack_t *temporal;
+	stack_t *aux;
+	(void)new_value;
 
-	temporal = *s;
-	while (temporal)
+	aux = *s;
+
+	while (aux && aux->n > 0 && aux->n < 128)
 	{
-		if ((temporal)->n > 0 && (temporal)->n < 127)
-		{
-			printf("%c", (temporal)->n);
-			lenght++;
-			temporal = (temporal)->next;
-		}
-		else
-			break;
+		printf("%c", aux->n);
+		aux = aux->next;
 	}
+
 	printf("\n");
 }

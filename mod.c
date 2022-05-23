@@ -6,22 +6,31 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void mod(stack_t **stack, unsigned int line_number)
+void mod(stack_t **s, unsigned int new_value)
 {
-	if (!stack || !*stack || !(*stack)->next)
+	int m = 0;
+	stack_t *aux = NULL;
+
+	aux = *s;
+
+	for (; aux != NULL; aux = aux->next, m++)
+		;
+
+	if (m < 2)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
-		free_dlistint(*stack);
+		dprintf(2, "L%u: can't mod, stack too short\n", new_value);
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
-	else if ((*stack)->n == 0)
+
+	if ((*s)->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", line_number);
+		dprintf(2, "L%u: division by zero\n", new_value);
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		((*stack)->next)->n = ((*stack)->next)->n % (*stack)->n;
-		delete_dnodeint_at_index(stack, 0);
-	}
+
+	aux = (*s)->next;
+	aux->n %= (*s)->n;
+	pop(s, new_value);
 }

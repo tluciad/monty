@@ -3,11 +3,11 @@
  * nop - doesn’t do anything
  *
  * @s: name of the stack
- * @line_number: new item to push
+ * @new_value: new item to push
  * Return: Always 0
  */
-void nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **s, unsigned int new_value)
 {
 	(void)s;
-	(void)line_number;
+	(void)new_value;
 }

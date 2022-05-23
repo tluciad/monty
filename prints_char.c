@@ -3,23 +3,22 @@
  * prints_char - prints the char at the top of the stack
  *
  * @s: name of the stack
- * @line_number: new item to push
+ * @new_value: new item to push
  * Return: Always 0
  */
-void prints_char(stack_t **stack, unsigned int line_number)
+void prints_char(stack_t **s, unsigned int new_value)
 {
-	if (!s || !*s)
+	if (s == NULL || *s == NULL)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
-		free_dlistint(*s);
+		dprintf(2, "L%u: can't pchar, stack empty\n", new_value);
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
-	else if (((*s)->n) > 127 || ((*s)->n) < 0)
+	if ((*s)->n < 0 || (*s)->n >= 128)
 	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
-		free_dlistint(*s);
+		dprintf(2, "L%u: can't pchar, value out of range\n", new_value);
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
-	else
-		printf("%c\n", (*s)->n);
+	printf("%c\n", (*s)->n);
 }
