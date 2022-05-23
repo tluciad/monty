@@ -3,13 +3,13 @@
  * rotr - reverse the stack
  *
  * @s: head of the linked list
- * @new_value: line number
+ * @line_number: line number
  * Return: no return
  */
-void _rotr(stack_t **s, unsigned int new_value)
+void _rotr(stack_t **s, unsigned int line_number)
 {
 	stack_t *aux = NULL;
-	(void)new_value;
+	(void)line_number;
 
 	if (*s == NULL)
 		return;

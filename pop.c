@@ -6,13 +6,13 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void pop(stack_t **s, unsigned int new_value)
+void pop(stack_t **s, unsigned int line_number)
 {
 	stack_t *aux;
 
-	if (new_value == NULL || *s == NULL)
+	if (line_number == NULL || *s == NULL)
 	{
-		dprintf(2, "L%u: can't pop an empty stack\n", new_value);
+		dprintf(2, "L%u: can't pop an empty stack\n", line_number);
 		free_varglobal();
 		exit(EXIT_FAILURE);
 	}

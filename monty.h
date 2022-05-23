@@ -60,8 +60,8 @@ typedef struct globals{
 
 extern global_t varglobal;
 
-void push(stack_t **s, unsigned int new_value);
-void pall(stack_t **s, unsigned int new_value);
+void push(stack_t **s, unsigned int line_number);
+void pall(stack_t **s, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void swap_two_elements(stack_t **stack, unsigned int new_item);
 void add(stack_t **stack, unsigned int line_number);

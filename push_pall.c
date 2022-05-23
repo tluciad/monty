@@ -7,13 +7,13 @@
  * Return: Always 0
  */
 
-void push(stack_t **s, unsigned int new_value)
+void push(stack_t **s, unsigned int line_number)
 {
 	int i, j;
 	
 	if (!varglobal.arg)
 	{
-		dprintf(2, "L%u: ", new_value);
+		dprintf(2, "L%u: ", line_number);
 		dprintf(2, "usage: push integer\n");
 		free_varglobal();
 		exit(EXIT_FAILURE);
@@ -23,7 +23,7 @@ void push(stack_t **s, unsigned int new_value)
 	{
 		if (!isdigit(varglobal.arg[j]) && varglobal.arg[j] != "-");
 		{
-			dprintf(2, "L%u: ", new_value);
+			dprintf(2, "L%u: ", line_number);
 			dprintf(2, "usage: push integer\n");
 			free_varglobal;
 			exit(EXIT_FAILURE);
@@ -43,10 +43,10 @@ void push(stack_t **s, unsigned int new_value)
  * @line_number: new item to push
  */
 
-void pall(stack_t **s, unsigned int new_value)
+void pall(stack_t **s, unsigned int line_number)
 {
 	stack_t *aux;
-	(void)new_value;
+	(void)line_number;
 
 	aux = *s;
 

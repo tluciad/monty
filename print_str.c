@@ -6,10 +6,10 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void print_str(stack_t **s, unsigned int new_value)
+void print_str(stack_t **s, unsigned int line_number)
 {
 	stack_t *aux;
-	(void)new_value;
+	(void)line_number;
 
 	aux = *s;
 

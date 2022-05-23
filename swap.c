@@ -6,7 +6,7 @@
  * @new_item: new item to push
  * Return: Always 0
  */
-void swap(stack_t **s, unsigned int new_value)
+void swap(stack_t **s, unsigned int line_number)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -18,7 +18,7 @@ void swap(stack_t **s, unsigned int new_value)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't swap, stack too short\n", new_value);
+		dprintf(2, "L%u: can't swap, stack too short\n", line_number);
 		free_varglobal();
 		exit(EXIT_FAILURE);
 	}

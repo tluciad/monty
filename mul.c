@@ -3,10 +3,10 @@
  * mul - multiplies the second top element of the stack
  *
  * @s: name of the stack
- * @new_value: new item to push
+ * @line_number: new item to push
  * Return: Always 0
  */
-void mul(stack_t **s, unsigned int new_value)
+void mul(stack_t **s, unsigned int line_number)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -18,12 +18,12 @@ void mul(stack_t **s, unsigned int new_value)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't mul, stack too short\n", new_value);
+		dprintf(2, "L%u: can't mul, stack too short\n", line_number);
 		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
 
 	aux = (*s)->next;
 	aux->n *= (*s)->n;
-	pop(s, new_value);
+	pop(s, line_number);
 }

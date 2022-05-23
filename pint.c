@@ -4,13 +4,13 @@
  * @s: name of stack
  * @line_number: item of the stack
  */
-void pint(stack_t **s, unsigned int new_value)
+void pint(stack_t **s, unsigned int line_number)
 {
-	(void)new_value;
+	(void)line_number;
 
 	if (*s == NULL)
 	{
-		dprintf(2, "L%u: ", new_value);
+		dprintf(2, "L%u: ", line_number);
 		dprintf(2, "can't pint, stack empty\n");
 		free_varglobal();
 		exit(EXIT_FAILURE);
