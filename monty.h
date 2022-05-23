@@ -7,6 +7,11 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define EMPTY_STR ""
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -36,27 +41,36 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/** PROTOTYPES **/
 
-ssize_t read_textfile(const char *filename, size_t letters);
-void push(stack_t **s, unsigned int new_value);
-void pall(stack_t **s, __attribute__((unused)) unsigned int new_value);
-void pint(stack_t **s, unsigned int new_value);
-void swap_two_elements(stack_t **s, unsigned int new_item);
-void add(stack_t **s, unsigned int new_value);
-void nop(stack_t **s, unsigned int new_value);
+/** stack_actions.c **/
+void push(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 
-void sub(stack_t **s, unsigned int new_value);
-void mul(stack_t **s, unsigned int new_value);
-void div(stack_t **s, unsigned int new_value);
-void mod(stack_t **s, unsigned int new_value);
-void prints_char(stack_t **s, unsigned int new_value);
-void prints_str(stack_t **s, unsigned int new_value);
-void rotate_s_bottom(stack_t **s, unsigned int new_value);
-void rotate_s_top(stack_t **s, unsigned int new_value);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 
-void stack_queue(stack_t **s, unsigned int new_value);
-void add_node(stack_t **s, unsigned int new_value);
-void parser(char *cont, unsigned int new_value);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
 
-extern char *global_s;
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+void add_node(stack_t **stack, unsigned int line_number);
+
+void (*get_method(char *method))(stack_t **stack, unsigned int line_number);
+
+extern char *global_stack;
+char *global_stack;
+extern stack_t *global_stack_head;
+stack_t *global_stack_head;
 #endif
