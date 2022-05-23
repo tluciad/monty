@@ -3,7 +3,7 @@
  * print_str - prints the string starting at the top of the stack
  *
  * @s: name of the stack
- * @line_number: new item to push
+ * @new_value: new item to push
  * Return: Always 0
  */
 void print_str(stack_t **s, unsigned int new_value)

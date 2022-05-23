@@ -10,7 +10,7 @@ void pop(stack_t **s, unsigned int new_value)
 {
 	stack_t *aux;
 
-	if (new_value == NULL || *s == NULL)
+	if(!s || !*s)
 	{
 		dprintf(2, "L%u: can't pop an empty stack\n", new_value);
 		free_varglobal();

@@ -4,14 +4,14 @@
  * rotl - rotates the first element to the bottom and  the second to the top
  *
  * @s: head of the linked list
- * @new_number: line number;
+ * @new_value: line number;
  * Return: no return
  */
-void rotl(stack_t **s, unsigned int new_number)
+void rotl(stack_t **s, unsigned int new_value)
 {
     stack_t *aux1 = NULL;
     stack_t *aux2 = NULL;
-    (void)new_number;
+    (void)new_value;
 
     if (*s == NULL)
         return;

@@ -3,14 +3,14 @@
 /**
  * push - push action for monty
  * @s: name of the stack
- * @line_number: new item to push
+ * @new_value: new item to push
  * Return: Always 0
  */
 
 void push(stack_t **s, unsigned int new_value)
 {
-	int i, j;
-	
+	int n, j;
+
 	if (!varglobal.arg)
 	{
 		dprintf(2, "L%u: ", new_value);
@@ -21,20 +21,21 @@ void push(stack_t **s, unsigned int new_value)
 
 	for (j = 0; varglobal.arg[j] != '\0'; j++)
 	{
-		if (!isdigit(varglobal.arg[j]) && varglobal.arg[j] != "-");
+		if (!isdigit(varglobal.arg[j]) && varglobal.arg[j] != '-')
 		{
 			dprintf(2, "L%u: ", new_value);
 			dprintf(2, "usage: push integer\n");
-			free_varglobal;
+			free_varglobal();
 			exit(EXIT_FAILURE);
 		}
 	}
-	i = atoi(varglobal.arg);
 
-	if(varglobal.lifo == 1)
-		add_nodeint(s, i);
+	n = atoi(varglobal.arg);
+
+	if (varglobal.lifo == 1)
+		add_nodeint(s, n);
 	else
-		add_nodeint_end(s, i);
+		add_nodeint_end(s, n);
 }
 
 /**

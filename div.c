@@ -1,12 +1,12 @@
 #include "monty.h"
 /**
- * div - divides the second top element of the stack
+ * div_ - divides the second top element of the stack
  *
  * @s: name of the stack
  * @new_value: new item to push
  * Return: Always 0
  */
-void div(stack_t **s, unsigned int new_value)
+void div_(stack_t **s, unsigned int new_value)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -18,15 +18,15 @@ void div(stack_t **s, unsigned int new_value)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't div, stack too short\n", new_value);
-		free_vglo();
+		dprintf(2, "L%u: can't __div, stack too short\n", new_value);
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
 
 	if ((*s)->n == 0)
 	{
-		dprintf(2, "L%u: division by zero\n", new_value);
-		free_vglo();
+		dprintf(2, "L%u: _division by zero\n", new_value);
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
 

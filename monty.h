@@ -7,6 +7,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -49,7 +51,8 @@ typedef struct instruction_s
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO Holberton project
  */
-typedef struct globals{
+typedef struct globals
+{
 	int lifo;
 	unsigned int cont;
 	char *arg;
@@ -62,25 +65,31 @@ extern global_t varglobal;
 
 void push(stack_t **s, unsigned int new_value);
 void pall(stack_t **s, unsigned int new_value);
-void pint(stack_t **stack, unsigned int line_number);
-void swap_two_elements(stack_t **stack, unsigned int new_item);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **s, unsigned int new_value);
+void swap(stack_t **s, unsigned int new_value);
+void pop(stack_t **s, unsigned int new_value);
+void add(stack_t **s, unsigned int new_value);
+void nop(stack_t **s, unsigned int new_value);
 
-void mul(stack_t **stack, unsigned int line_number);
-void div(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void prints_char(stack_t **stack, unsigned int line_number);
-void prints_str(stack_t **stack, unsigned int line_number);
-void rotl(stack_t **stack, unsigned int line_number);
-void rotr(stack_t **stack, unsigned int line_number);
+void mul(stack_t **s, unsigned int new_value);
+void div_(stack_t **s, unsigned int new_value);
+void mod(stack_t **s, unsigned int new_value);
+void prints_char(stack_t **s, unsigned int new_value);
+void print_str(stack_t **s, unsigned int new_value);
+void rotl(stack_t **s, unsigned int new_value);
+void rotr(stack_t **s, unsigned int new_value);
+void sub(stack_t **s, unsigned int new_value);
 
-void stack_queue(stack_t **stack, unsigned int line_number);
-void add_nodeint(stack_t **stack, unsigned int line_number);
-void parser(char *cont, unsigned int line_number);
+void stack(stack_t **s, unsigned int new_value);
+void queue(stack_t **s, unsigned int new_value);
+stack_t *add_nodeint_end(stack_t **head, const int n);
+stack_t *add_nodeint(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
+
 void (*get_opfun(char *tok_a))(stack_t **stack, unsigned int line_number);
 
-
 void free_varglobal(void);
+void start_vglo(FILE *f);
 
-#endif
+
+#endif/*MONTY_H*/

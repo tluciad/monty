@@ -1,9 +1,10 @@
 #include "monty.h"
 /**
- * @brief 
- * 
+ * get_opfun - selects the correct opcode to perform
+ *  @tok_a: opcode passed
+ * Return: pointer to the function that executes the opcode
  */
-void (*get_opfun(char *tok_a, unsigned int line_number))(stack_t **stack, unsigned int line_number)
+void (*get_opfun(char *tok_a))(stack_t **stack, unsigned int line_number)
 {
     instruction_t opfun[] ={
         {"push", push},
@@ -17,20 +18,19 @@ void (*get_opfun(char *tok_a, unsigned int line_number))(stack_t **stack, unsign
 		{"nop", nop},
 		{"sub", sub},
 		{"mul", mul},
-		{"div", div},
+		{"div", div_},
 		{"mod", mod},
 		{"pchar", prints_char},
-		{"pstr", prints_str},
+		{"pstr", print_str},
 		{NULL, NULL}
 	};
-	int i = 0;
-    while (opfun[i].opcode != NULL)
+	int i;
+
+	for (i = 0; opfun[i].opcode; i++)
 	{
 		if (strcmp(opfun[i].opcode, tok_a) == 0)
-			return (opfun[i].f);
-		i++;
+			break;
 	}
-	// TODO: If the method is not found, exit with an error.
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, tok_a);
-	exit(EXIT_FAILURE);
+
+	return (opfun[i].f);
 }

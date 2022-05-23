@@ -6,7 +6,7 @@
  * @new_value: line number
  * Return: no return
  */
-void _rotr(stack_t **s, unsigned int new_value)
+void rotr(stack_t **s, unsigned int new_value)
 {
 	stack_t *aux = NULL;
 	(void)new_value;
