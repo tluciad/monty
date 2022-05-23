@@ -10,6 +10,7 @@
 void check_is_number(char *str, unsigned int line_number)
 {
 	int i = 0;
+
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
@@ -30,25 +31,35 @@ void check_is_number(char *str, unsigned int line_number)
 void parse_method(char *content, unsigned int line_number)
 {
 	char *args;
-	void (*method_ptr)(stack_t * *stack, unsigned int line_number);
+
+	void (*method_ptr)(stack_t **stack, unsigned int line_number);
 	char *method = strtok(content, " $\n");
+
+
 	if (!method || method[0] == ' ')
 		return;
 	args = strtok(NULL, " $\n");
-	/*TODO: Check if the method has a value*/
+
 	if (args && (strcmp(method, "push") == 0))
 	{
 		check_is_number(args, line_number);
 		global_stack = strdup(args);
 	}
 
-	method_ptr = get_method(method, line_number);
+	method_ptr = get_method(method);
+	if (method_ptr == NULL)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, method);
+		exit(EXIT_FAILURE);
+	}
 
 	method_ptr(&global_stack_head, line_number);
 }
 /**
  * main - Implement main function
- *
+ *@argc: argument
+ *@argv: argument 2
+ *Return: Always 0
  */
 int main(
 	int argc __attribute__((unused)),
@@ -79,5 +90,5 @@ int main(
 		line_number++;
 		parse_method(content, line_number);
 	}
-	return 0;
+	return (0);
 }
