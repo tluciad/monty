@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * mod - computes the rest of the division
+ * mod - computes the rest of the _division
  *
  * @stack: name of the stack
  * @line_number: new item to push
@@ -25,7 +25,11 @@ void mod(stack_t **stack, unsigned int line_number)
 
 	if ((*stack)->n == 0)
 	{
+<<<<<<< HEAD
+		dprintf(2, "L%u: _division by zero\n", new_value);
+=======
 		dprintf(2, "L%u: division by zero\n", line_number);
+>>>>>>> c6c706afb87d30b8efb22a10f10ee2a6d48090fe
 		free_varglobal();
 		exit(EXIT_FAILURE);
 	}

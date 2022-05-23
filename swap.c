@@ -3,7 +3,7 @@
  * swap -  swaps the top two elements of the stack
  * 
  * @s: name of the stack
- * @new_item: new item to push
+ * @new_value: new item to push
  * Return: Always 0
  */
 void swap(stack_t **stack, unsigned int line_number)

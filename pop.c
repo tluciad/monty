@@ -10,7 +10,11 @@ void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux;
 
+<<<<<<< HEAD
+	if(!s || !*s)
+=======
 	if (line_number == NULL || *stack == NULL)
+>>>>>>> c6c706afb87d30b8efb22a10f10ee2a6d48090fe
 	{
 		dprintf(2, "L%u: can't pop an empty stack\n", line_number);
 		free_varglobal();

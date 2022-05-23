@@ -6,7 +6,11 @@
  * @line_number: line number
  * Return: no return
  */
+<<<<<<< HEAD
+void rotr(stack_t **s, unsigned int new_value)
+=======
 void _rotr(stack_t **stack, unsigned int line_number)
+>>>>>>> c6c706afb87d30b8efb22a10f10ee2a6d48090fe
 {
 	stack_t *aux = NULL;
 	(void)line_number;
