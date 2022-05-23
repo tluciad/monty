@@ -60,7 +60,6 @@ typedef struct globals{
 
 extern global_t varglobal;
 
-ssize_t read_textfile(const char *filename, size_t letters);
 void push(stack_t **s, unsigned int new_value);
 void pall(stack_t **s, unsigned int new_value);
 void pint(stack_t **stack, unsigned int line_number);
@@ -73,14 +72,15 @@ void div(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void prints_char(stack_t **stack, unsigned int line_number);
 void prints_str(stack_t **stack, unsigned int line_number);
-void rotate_s_bottom(stack_t **stack, unsigned int line_number);
-void rotate_s_top(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
 
 void stack_queue(stack_t **stack, unsigned int line_number);
-void add_node(stack_t **stack, unsigned int line_number);
+void add_nodeint(stack_t **stack, unsigned int line_number);
 void parser(char *cont, unsigned int line_number);
-void (*get_opfun(char *tok_a, unsigned int line_number))(stack_t **stack, unsigned int line_number);
+void (*get_opfun(char *tok_a))(stack_t **stack, unsigned int line_number);
 
 
-void free_varglobal(void);gi
+void free_varglobal(void);
+
 #endif

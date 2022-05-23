@@ -6,20 +6,27 @@
  * @new_item: new item to push
  * Return: Always 0
  */
-void swap_two_elements(stack_t **stack, unsigned int new_item)
+void _swap(stack_t **s, unsigned int new_value)
 {
-	int line_number;
+	int m = 0;
+	stack_t *aux = NULL;
 
-	if (!s || !*s || !(*s)->next)
+	aux = *s;
+
+	for (; aux != NULL; aux = aux->next, m++)
+		;
+
+	if (m < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", new_item);
-		free stack_t(*s);
+		dprintf(2, "L%u: can't swap, stack too short\n", new_value);
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		line_number = (*s)->n;
-		(*s)->n = ((*s)->next)->n;
-		((*s)->next)->n = line_number;
-	}
+
+	aux = *s;
+	*s = (*s)->next;
+	aux->next = (*s)->next;
+	aux->prev = *s;
+	(*s)->next = aux;
+	(*s)->prev = NULL;
 }

@@ -6,14 +6,17 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void pop(stack_t **stack, unsigned int line_number)
+void _pop(stack_t **s, unsigned int new_value)
 {
-	if (!stack || !*stack)
+	stack_t *aux;
+
+	if (new_value == NULL || *s == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		free_dlistint(*stack);
+		dprintf(2, "L%u: can't pop an empty stack\n", new_value);
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
-	else
-		delete_dnodeint_at_index(stack, 0);
+	aux = *scanf;
+	*s = (*s)->next;
+	free(aux);
 }
