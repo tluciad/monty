@@ -4,7 +4,7 @@
  * get_method - function to get method
  *
  * @method: name of the method
- * Return: Always 0
+ * Return:  0
  */
 void (*get_method(char *method))(stack_t **stack, unsigned int line_number)
 {
