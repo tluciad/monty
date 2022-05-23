@@ -63,6 +63,7 @@ typedef struct globals
 
 extern global_t varglobal;
 
+<<<<<<< HEAD
 void push(stack_t **s, unsigned int new_value);
 void pall(stack_t **s, unsigned int new_value);
 void pint(stack_t **s, unsigned int new_value);
@@ -88,6 +89,31 @@ void free_dlistint(stack_t *head);
 
 void (*get_opfun(char *tok_a))(stack_t **stack, unsigned int line_number);
 
+=======
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void print_int(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int new_item);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+
+void mul(stack_t **stack, unsigned int line_number);
+void div_op(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void prints_char(stack_t **stack, unsigned int line_number);
+void print_str(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int new_number);
+void _rotr(stack_t **stack, unsigned int line_number);
+
+void queue(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
+void add_nodeint(stack_t **stack, unsigned int line_number);
+void parser(char *cont, unsigned int line_number);
+void (*get_opfun(char *tok_a))(stack_t **stack, unsigned int line_number);
+
+>>>>>>> c6c706afb87d30b8efb22a10f10ee2a6d48090fe
 void free_varglobal(void);
 void start_vglo(FILE *f);
 

@@ -2,18 +2,23 @@
 
 /**
  * push - push action for monty
+<<<<<<< HEAD
  * @s: name of the stack
  * @new_value: new item to push
+=======
+ * @stack: name of the stack
+ * @line_number: new item to push
+>>>>>>> c6c706afb87d30b8efb22a10f10ee2a6d48090fe
  * Return: Always 0
  */
 
-void push(stack_t **s, unsigned int new_value)
+void push(stack_t **stack, unsigned int line_number)
 {
 	int n, j;
 
 	if (!varglobal.arg)
 	{
-		dprintf(2, "L%u: ", new_value);
+		dprintf(2, "L%u: ", line_number);
 		dprintf(2, "usage: push integer\n");
 		free_varglobal();
 		exit(EXIT_FAILURE);
@@ -23,7 +28,7 @@ void push(stack_t **s, unsigned int new_value)
 	{
 		if (!isdigit(varglobal.arg[j]) && varglobal.arg[j] != '-')
 		{
-			dprintf(2, "L%u: ", new_value);
+			dprintf(2, "L%u: ", line_number);
 			dprintf(2, "usage: push integer\n");
 			free_varglobal();
 			exit(EXIT_FAILURE);
@@ -40,16 +45,16 @@ void push(stack_t **s, unsigned int new_value)
 
 /**
  * pall - prints all the info of the stack
- * @s: name of the stack
+ * @stack: name of the stack
  * @line_number: new item to push
  */
 
-void pall(stack_t **s, unsigned int new_value)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux;
-	(void)new_value;
+	(void)line_number;
 
-	aux = *s;
+	aux = *stack;
 
 	while (aux)
 	{
