@@ -60,20 +60,20 @@ typedef struct globals{
 
 extern global_t varglobal;
 
-void push(stack_t **s, unsigned int line_number);
-void pall(stack_t **s, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void swap_two_elements(stack_t **stack, unsigned int new_item);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void print_int(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int new_item);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 void mul(stack_t **stack, unsigned int line_number);
 void div(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 void prints_char(stack_t **stack, unsigned int line_number);
-void prints_str(stack_t **stack, unsigned int line_number);
-void rotl(stack_t **stack, unsigned int line_number);
-void rotr(stack_t **stack, unsigned int line_number);
+void print_str(stack_t **stack, unsigned int line_number);
 
 void stack_queue(stack_t **stack, unsigned int line_number);
 void add_nodeint(stack_t **stack, unsigned int line_number);

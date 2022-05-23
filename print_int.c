@@ -8,12 +8,12 @@
  */
 void print_int(stack_t **stack, unsigned int line_number)
 {
-	if (!s || !*s)
+	if (!stack || !*stack)
 	{
 		fprintf(stderr, "L%d: can't pint, s empty\n", line_number);
-		free_dlistint(*s);
+		free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 	else
-		printf("%d\n", (*s)->n);
+		printf("%d\n", (*stack)->n);
 }

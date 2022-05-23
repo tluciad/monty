@@ -1,36 +1,36 @@
 #include "monty.h"
+
 /**
- * @brief 
- * 
+ * getopcode_fun - gets the function for a given opcode
+ * @opcode: operation code to search
+ * Return: Pointer to opcode function
  */
-void (*get_opfun(char *tok_a, unsigned int line_number))(stack_t **stack, unsigned int line_number)
+
+void (*getopcode_fun(char *opcode))(stack_t **, unsigned int)
 {
-    instruction_t opfun[] ={
-        {"push", push},
+	int i = 0;
+	instruction_t made_opcodes[] = {
+		{"push", push},
 		{"pall", pall},
-		{"pint", pint},
+		{"pint", print_int},
 		{"pop", pop},
 		{"swap", swap},
-		{"queue", queue},
-		{"stack", stack},
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
-		{"mul", mul},
 		{"div", div},
+		{"mul", mul},
 		{"mod", mod},
+		{"#", nop},
 		{"pchar", prints_char},
-		{"pstr", prints_str},
-		{NULL, NULL}
+		{"pstr", print_str}
 	};
-	int i = 0;
-    while (opfun[i].opcode != NULL)
+
+	while (i <= 13)
 	{
-		if (strcmp(opfun[i].opcode, tok_a) == 0)
-			return (opfun[i].f);
+		if (_strcmp(made_opcodes[i].opcode, opcode) == 0)
+			return (made_opcodes[i].f);
 		i++;
 	}
-	// TODO: If the method is not found, exit with an error.
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, tok_a);
-	exit(EXIT_FAILURE);
+	return (NULL);
 }

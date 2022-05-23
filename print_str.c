@@ -6,12 +6,12 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void print_str(stack_t **s, unsigned int line_number)
+void print_str(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux;
 	(void)line_number;
 
-	aux = *s;
+	aux = *stack;
 
 	while (aux && aux->n > 0 && aux->n < 128)
 	{

@@ -6,12 +6,12 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void sub(stack_t **s, unsigned int line_number)
+void sub(stack_t **stack, unsigned int line_number)
 {
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *s;
+	aux = *stack;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -23,7 +23,7 @@ void sub(stack_t **s, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*s)->next;
-	aux->n -= (*s)->n;
-	pop(s, line_number);
+	aux = (*stack)->next;
+	aux->n -= (*stack)->n;
+	pop(stack, line_number);
 }
