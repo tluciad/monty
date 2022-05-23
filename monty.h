@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -84,6 +85,34 @@ void add_nodeint(stack_t **stack, unsigned int line_number);
 void parser(char *cont, unsigned int line_number);
 void (*get_opfun(char *tok_a))(stack_t **stack, unsigned int line_number);
 
+void initialize_buffer(char *s, int size);
+void initialize_array(char **s, int size);
+
+void replace_emptylines(char *buff, char **copy);
+int count_lines(char *s);
+void lines_to_array(char *line, char **copy);
+
+void free_dlistint(stack_t *head);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+stack_t *add_dnodeint(stack_t **head, const int n);
+size_t print_dlistint(stack_t *h);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+
 void free_varglobal(void);
+
+#define MALLOC_ERROR1(BUFF)
+do{
+	fprintf(stderr, "Error: malloc failed");
+	exit(EXIT_FAILURE);
+} while (0)
+
+#define INSTRUCTION_ERROR(LINE, INSTRUCTION, STACK)
+	do
+{
+	fprintf(stderr, "L%d: unknown instruction %s\n", LINE, INSTRUCTION);
+	free_dlistint(STACK);
+	exit(EXIT_FAILURE);
+}
+while (0)
 
 #endif
