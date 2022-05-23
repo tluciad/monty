@@ -6,7 +6,7 @@
  * @line_number: new item to push
  * Return: Always 0
  */
-void div(stack_t **stack, unsigned int line_number)
+void div_op(stack_t **stack, unsigned int line_number)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -19,14 +19,14 @@ void div(stack_t **stack, unsigned int line_number)
 	if (m < 2)
 	{
 		dprintf(2, "L%u: can't div, stack too short\n", line_number);
-		free_vglo();
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
 
 	if ((*stack)->n == 0)
 	{
 		dprintf(2, "L%u: division by zero\n", line_number);
-		free_vglo();
+		free_varglobal();
 		exit(EXIT_FAILURE);
 	}
 
