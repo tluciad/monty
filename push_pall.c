@@ -2,12 +2,12 @@
 
 /**
  * push - push action for monty
- * @s: name of the stack
+ * @stack: name of the stack
  * @line_number: new item to push
  * Return: Always 0
  */
 
-void push(stack_t **s, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
 	int i, j;
 	
@@ -39,16 +39,16 @@ void push(stack_t **s, unsigned int line_number)
 
 /**
  * pall - prints all the info of the stack
- * @s: name of the stack
+ * @stack: name of the stack
  * @line_number: new item to push
  */
 
-void pall(stack_t **s, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux;
 	(void)line_number;
 
-	aux = *s;
+	aux = *stack;
 
 	while (aux)
 	{

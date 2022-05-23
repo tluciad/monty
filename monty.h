@@ -49,7 +49,8 @@ typedef struct instruction_s
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO Holberton project
  */
-typedef struct globals{
+typedef struct globals
+{
 	int lifo;
 	unsigned int cont;
 	char *arg;
@@ -74,12 +75,14 @@ void mod(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void prints_char(stack_t **stack, unsigned int line_number);
 void print_str(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **s, unsigned int new_number);
+void _rotr(stack_t **s, unsigned int line_number);
 
-void stack_queue(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+void stack(stack_t **stack, unsigned int line_number);
 void add_nodeint(stack_t **stack, unsigned int line_number);
 void parser(char *cont, unsigned int line_number);
 void (*get_opfun(char *tok_a))(stack_t **stack, unsigned int line_number);
-
 
 void free_varglobal(void);
 

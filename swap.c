@@ -6,12 +6,12 @@
  * @new_item: new item to push
  * Return: Always 0
  */
-void swap(stack_t **s, unsigned int line_number)
+void swap(stack_t **stack, unsigned int line_number)
 {
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *s;
+	aux = *stack;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -23,10 +23,10 @@ void swap(stack_t **s, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	aux = *s;
-	*s = (*s)->next;
-	aux->next = (*s)->next;
-	aux->prev = *s;
-	(*s)->next = aux;
-	(*s)->prev = NULL;
+	aux = *stack;
+	*stack = (*stack)->next;
+	aux->next = (*stack)->next;
+	aux->prev = *stack;
+	(*stack)->next = aux;
+	(*stack)->prev = NULL;
 }

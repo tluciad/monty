@@ -2,7 +2,7 @@
 /**
  * print_str - prints the string starting at the top of the stack
  *
- * @s: name of the stack
+ * @stavck: name of the stack
  * @line_number: new item to push
  * Return: Always 0
  */

@@ -2,7 +2,7 @@
 /**
  * sub - subtracts the top element of the stack
  *
- * @s: name of the stack
+ * @stack: name of the stack
  * @line_number: new item to push
  * Return: Always 0
  */

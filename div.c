@@ -2,16 +2,16 @@
 /**
  * div - divides the second top element of the stack
  *
- * @s: name of the stack
+ * @stack: name of the stack
  * @line_number: new item to push
  * Return: Always 0
  */
-void div(stack_t **s, unsigned int line_number)
+void div(stack_t **stack, unsigned int line_number)
 {
 	int m = 0;
 	stack_t *aux = NULL;
 
-	aux = *s;
+	aux = *stack;
 
 	for (; aux != NULL; aux = aux->next, m++)
 		;
@@ -23,15 +23,14 @@ void div(stack_t **s, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if ((*s)->n == 0)
+	if ((*stack)->n == 0)
 	{
 		dprintf(2, "L%u: division by zero\n", line_number);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*s)->next;
-	aux->n /= (*s)->n;
+	aux = (*stack)->next;
+	aux->n /= (*stack)->n;
 	pop(s, line_number);
 }
-
